@@ -1,0 +1,70 @@
+/*
+ * Copyright (c) 2018 Hai Zhang <dreaming.in.code.zh@gmail.com>
+ * All Rights Reserved.
+ */
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext {
+        kotlin_version = '1.5.21'
+    }
+    repositories {
+        //google()
+        //mavenCentral()
+        maven {
+            allowInsecureProtocol = true
+            //url 'http://maven.aliyun.com/nexus/content/repositories/google'
+            url 'https://maven.aliyun.com/repository/google'
+        }
+        //maven {
+          //  allowInsecureProtocol = true
+          //  url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+
+        //}
+        maven {
+            allowInsecureProtocol = true
+            //url 'http://maven.aliyun.com/nexus/content/groups/public/'
+            url 'https://maven.aliyun.com/repository/public'
+
+        }
+        //maven { allowInsecureProtocol = true}
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        //google()
+        //mavenCentral()
+        //jcenter()
+        //maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+        //maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        //maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        //maven { allowInsecureProtocol = true}
+        maven {
+            allowInsecureProtocol = true
+            //url 'http://maven.aliyun.com/nexus/content/repositories/google'
+            url 'https://maven.aliyun.com/repository/google'
+        }
+        //maven {
+        //    allowInsecureProtocol = true
+        //    url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+        //}
+        maven {
+            allowInsecureProtocol = true
+            //url 'http://maven.aliyun.com/nexus/content/groups/public/'
+            url 'https://maven.aliyun.com/repository/public'
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
