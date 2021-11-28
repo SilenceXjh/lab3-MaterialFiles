@@ -63,12 +63,13 @@
                 android:id="@+id/textEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/screen_edge_margin"
                 android:background="@null"
                 android:gravity="top"
                 android:importantForAutofill="no"
                 android:inputType="textMultiLine"
+                android:padding="@dimen/screen_edge_margin"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1">
+
                 <requestFocus />
             </me.zhanghai.android.files.ui.ScrollingChildEditText>
         </me.zhanghai.android.fastscroll.FastScrollNestedScrollView>

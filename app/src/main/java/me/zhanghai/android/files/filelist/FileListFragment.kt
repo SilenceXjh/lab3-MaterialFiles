@@ -49,6 +49,7 @@ import me.zhanghai.android.effortlesspermissions.AfterPermissionDenied
 import me.zhanghai.android.effortlesspermissions.EffortlessPermissions
 import me.zhanghai.android.effortlesspermissions.OpenAppDetailsDialogFragment
 import me.zhanghai.android.files.R
+import me.zhanghai.android.files.about.AboutActivity
 import me.zhanghai.android.files.app.clipboardManager
 import me.zhanghai.android.files.databinding.FileListFragmentAppBarIncludeBinding
 import me.zhanghai.android.files.databinding.FileListFragmentBinding
@@ -74,6 +75,7 @@ import me.zhanghai.android.files.provider.archive.createArchiveRootPath
 import me.zhanghai.android.files.provider.archive.isArchivePath
 import me.zhanghai.android.files.provider.linux.isLinuxPath
 import me.zhanghai.android.files.settings.Settings
+import me.zhanghai.android.files.settings.SettingsActivity
 import me.zhanghai.android.files.terminal.Terminal
 import me.zhanghai.android.files.ui.CoordinatorAppBarLayout
 import me.zhanghai.android.files.ui.FixQueryChangeSearchView
@@ -353,7 +355,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                 binding.drawerLayout?.openDrawer(GravityCompat.START)
                 if (binding.persistentDrawerLayout != null) {
                     Settings.FILE_LIST_PERSISTENT_DRAWER_OPEN.putValue(
-                        !Settings.FILE_LIST_PERSISTENT_DRAWER_OPEN.valueCompat
+                            !Settings.FILE_LIST_PERSISTENT_DRAWER_OPEN.valueCompat
                     )
                 }
                 true
@@ -376,11 +378,11 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             }
             R.id.action_sort_order_ascending -> {
                 viewModel.setSortOrder(
-                    if (!menuBinding.sortOrderAscendingItem.isChecked) {
-                        Order.ASCENDING
-                    } else {
-                        Order.DESCENDING
-                    }
+                        if (!menuBinding.sortOrderAscendingItem.isChecked) {
+                            Order.ASCENDING
+                        } else {
+                            Order.DESCENDING
+                        }
                 )
                 true
             }
@@ -404,6 +406,15 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                 refresh()
                 true
             }
+            R.id.action_help -> {
+                help()
+                true
+            }
+            R.id.action_setting -> {
+                showSettings()
+                true
+            }
+
             R.id.action_select_all -> {
                 selectAllFiles()
                 true
@@ -616,6 +627,18 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
 
     private fun refresh() {
         viewModel.reload()
+    }
+
+    private fun help() {
+        val intent = Intent()
+        intent.setClass(this.requireContext(), AboutActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun showSettings() {
+        val intent = Intent()
+        intent.setClass(this.requireContext(), SettingsActivity::class.java)
+        startActivity(intent)
     }
 
     private fun setShowHiddenFiles(showHiddenFiles: Boolean) {

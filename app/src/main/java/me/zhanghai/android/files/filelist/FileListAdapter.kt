@@ -291,6 +291,9 @@ class FileListAdapter(
                     listener.showPropertiesDialog(file)
                     true
                 }
+                R.id.action_cancel -> {
+                    true
+                }
                 else -> false
             }
         }

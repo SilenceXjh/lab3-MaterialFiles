@@ -665,4 +665,7 @@
 
     <string name="shortcut_downloads_title">@string/navigation_standard_directory_downloads</string>
     <string name="shortcut_ftp_server_title">@string/ftp_server_title</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button">Button</string>
 </resources>
